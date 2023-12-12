@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form"
 
-function Formulario() {
+function Formulario(funcionario) {
     return(
         <Form>
             <Form.Group>
@@ -20,7 +20,7 @@ function Formulario() {
                 <Form.Control type="text"></Form.Control>
             </Form.Group>
             <Form.Group>
-                <Form.Control type="submit"></Form.Control>
+                <Form.Control className="btn btn-primary mt-3" type="submit"></Form.Control>
             </Form.Group>
         </Form>
     )
