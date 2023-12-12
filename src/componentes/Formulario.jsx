@@ -53,7 +53,7 @@ function Formulario({funcionario, setShow}){
             </Form.Group>
             <Form.Group>
                 <Form.Label>Salário:</Form.Label>
-                <Form.Control type='text' defaultValue={funcionari?.salario} required></Form.Control>
+                <Form.Control type='text' defaultValue={funcionario?.salario} required></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Control className='btn btn-primary mt-3' type='submit'></Form.Control>

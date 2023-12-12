@@ -2,7 +2,7 @@ import Modal from 'react-bootstrap/Modal'
 import ModalBody from 'react-bootstrap/esm/ModalBody'
 import Formulario from './Formulario'
 
-function Adicionar(show, setShow){
+function Adicionar({show, setShow}){
     return (
         <>
             <Modal show={show} onHide={() => setShow(false)}>
