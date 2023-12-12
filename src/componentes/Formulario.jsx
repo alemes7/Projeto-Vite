@@ -41,19 +41,19 @@ function Formulario({funcionario, setShow}){
         <Form onSubmit={enviarDados}>
             <Form.Group>
                 <Form.Label>Nome:</Form.Label>
-                <Form.Control type='text' defaultValue={funcionario.nome}></Form.Control>
+                <Form.Control type='text' defaultValue={funcionario?.nome} required></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Cargo:</Form.Label>
-                <Form.Control type='text' defaultValue={funcionario.cargo}></Form.Control>
+                <Form.Control type='text' defaultValue={funcionario?.cargo} required></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Departamento:</Form.Label>
-                <Form.Control type='text' defaultValue={funcionario.departamento}></Form.Control>
+                <Form.Control type='text' defaultValue={funcionario?.departamento} required></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Salário:</Form.Label>
-                <Form.Control type='text' defaultValue={funcionario.salario}></Form.Control>
+                <Form.Control type='text' defaultValue={funcionari?.salario} required></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Control className='btn btn-primary mt-3' type='submit'></Form.Control>

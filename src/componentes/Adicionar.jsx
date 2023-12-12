@@ -2,11 +2,11 @@ import Modal from 'react-bootstrap/Modal'
 import ModalBody from 'react-bootstrap/esm/ModalBody'
 import Formulario from './Formulario'
 
-function Adicionar(){
+function Adicionar(show, setShow){
     return (
         <>
-            <Modal>
-                <Modal.Header>
+            <Modal show={show} onHide={() => setShow(false)}>
+                <Modal.Header closeButton>
                     <h4>Adicionar</h4>
                 </Modal.Header>
                 <ModalBody>
@@ -16,3 +16,5 @@ function Adicionar(){
         </>
     )
 }
+
+export default Adicionar
