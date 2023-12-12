@@ -1,5 +1,5 @@
-import Conteudo from "../components/Conteudo"
-import Header from "../components/Header"
+import Conteudo from "./components/Conteudo"
+import Header from "./components/Header"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
