@@ -1,31 +1,31 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
 
-function Header({btn}) {
+function Header({btn}){
 
-    function sair() {
+    function sair(){
         localStorage.removeItem('key')
-        location.href = '/'
+        location.href = "/"
     }
 
     return (
         <header>
             <Navbar variant='dark'>
                 <Container>
-                    <Navbar.Brand>
+                    <Navbar.Brand className='mt-3'>
                         Minha Empresa
                     </Navbar.Brand>
                     {btn ? (
-                        <div className='d-flex gap-4'>
+                        <div className='d-flex gap-3 mt-3'>
                             <Button>Adicionar</Button>
                             <Button onClick={sair}>Sair</Button>
                         </div>
-                    ): ''}
+                    ) : ""}
                 </Container>
             </Navbar>
         </header>
     )
 }
-
-export default Header
+  
+  export default Header

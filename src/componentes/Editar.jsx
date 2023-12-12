@@ -1,37 +1,38 @@
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
-import { useState } from 'react'
-import axios from 'axios';
-import { MdEdit } from "react-icons/md"
-import Formulario from './Formulario'
+import { useEffect, useState } from 'react'
+import { TfiPencil } from "react-icons/tfi";
+import axios from 'axios'
+import Formulario from './Formulario';
 
+function Editar({id}){
 
-function Editar({id}) {
+    const[show, setShow] = useState(false)
+    const[funcionario, setFuncionario] = useState([])
 
-    const [show, setShow] = useState(true)
+    useEffect(() => {
+        axios.get("https://apiaulas.thiagodev502.repl.co/funcionarios/" + id)
+        .then((resposta) =>{
+            setFuncionario(resposta.data)
 
-    function editarDados() {
-        axios.put("https://apiaulas.thiagodev502.repl.co/funcionarios/" + id)
-        .then(() => location.reload())
-        .catch(() => {
-            console.log("Erro ao editar.")
+        }).catch((error)=>{
+            console.log(error)
         })
-    }
+
+    }, [])
 
     return(
         <div>
             <span style={{cursor: "pointer"}} onClick={() => setShow(true)}>
-                <MdEdit size={20} className="text-primary"/>
+                <TfiPencil size={20} className='text-primary'/>
             </span>
             <Modal show={show} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
-                    <h2>Editar</h2>
+                    <h4>Editar</h4>
                 </Modal.Header>
                 <Modal.Body>
-                    <Formulario id={id} setShow={setShow}/>
+                    <Formulario funcionario={funcionario} setShow={setShow} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={editarDados} variant="primary">Editar</Button>
                 </Modal.Footer>
             </Modal>
         </div>

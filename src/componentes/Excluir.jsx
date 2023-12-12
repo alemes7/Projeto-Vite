@@ -1,15 +1,14 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
-import { FaRegTrashAlt } from "react-icons/fa";
-import axios from 'axios';
+import { RiDeleteBin5Line } from "react-icons/ri"
+import axios from 'axios'
 
+function Excluir({id}){
 
-function Excluir({id}) {
+    const[show, setShow] = useState(false)
 
-    const [show, setShow] = useState(true)
-
-    function excluirDados() {
+    function excluirDados(){
         axios.delete("https://apiaulas.thiagodev502.repl.co/funcionarios/" + id)
         .then(() => location.reload())
         .catch(() => {
@@ -20,18 +19,17 @@ function Excluir({id}) {
     return(
         <div>
             <span style={{cursor: "pointer"}} onClick={() => setShow(true)}>
-                <FaRegTrashAlt size={20} className="text-danger"/>
+                <RiDeleteBin5Line size={20} className='text-danger'/>
             </span>
-            
             <Modal show={show} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
-                    <h2>Excluir</h2>
+                    <h4>Excluir</h4>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Deseja excluir realmente?</p>
+                    <p>Deseja realmente excluir?</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={excluirDados} variant="danger">Excluir</Button>
+                    <Button onClick={excluirDados} variant='danger'>Excluir</Button>
                 </Modal.Footer>
             </Modal>
         </div>

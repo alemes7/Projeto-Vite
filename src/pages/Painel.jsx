@@ -1,17 +1,17 @@
-import Header from "../componentes/Header";
-import Conteudo from "../componentes/Conteudo";
-import Tabela from "../componentes/tabela";
+import Conteudo from "../components/Conteudo"
+import Header from "../components/Header"
+import Tabela from "../components/Tabela"
 
-function Painel() {
+function Painel(){
     return (
-        <>
+      <>
         <Header btn={true} />
         <Conteudo>
-            <h2>Lista de Funcionarios</h2>
-            <Tabela/>
+            <h2>Lista de Funcionários</h2>
+            <Tabela />
         </Conteudo>
-        </>
+      </>
     )
-}
-
+  }
+  
 export default Painel

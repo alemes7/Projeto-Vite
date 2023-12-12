@@ -1,49 +1,50 @@
+import Conteudo from "../components/Conteudo"
 import Header from "../components/Header"
-import Conteudo from "../components/conteudo"
-import Form from 'react-bootstrap/Form'
-import Button  from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import Alert from "react-bootstrap/Alert"
 import { useState } from "react"
-import Alert from 'react-bootstrap/Alert'
 
 function Login() {
-    const [showAlert, setShowAlert] = useState(false);
 
-    function Autenticar(event) {
-        event.preventDefault();
-        const email = event.target[0].value
-        const senha = event.target[1].value
+  const [alert, setAlert] = useState(false)
 
-        if (email === 'admin@admin' && senha === '123') {
-            localStorage.setItem('key','token')
-            location.href = '/painel'
-        } else {
-            setShowAlert(true)
-            setTimeout(() => {
-                setShowAlert(false)
-            }, 3000);
-        }
+  function autenticar(event){
+    event.preventDefault()
+    const email = event.target[0].value
+    const pass = event.target[1].value
+
+    if (email === "admin@admin" && pass === "123"){
+      localStorage.setItem("key", "token")
+      location.href = "/painel"
+    }else{
+      setAlert(true)
+      setTimeout(() => {
+        setAlert(false)
+      }, 3000)
     }
+  }
 
-    return (
-        <>
-        <Header btn={false} />
-        <Conteudo>
-            <h2>Login</h2>
-            <Form onSubmit={Autenticar}>
-                <Form.Group>
-                    <Form.Label className="mt-2">Email:</Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" required />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label className="mt-2">Senha:</Form.Label>
-                    <Form.Control type="password" placeholder="Digite sua Senha" required />
-                </Form.Group>
-                <Button type="submit" className="mt-3">Login</Button>
-                {showAlert ? (<Alert variant="danger" className="mt-3">Email ou senha inválidos</Alert>) : ''}
-            </Form>
-        </Conteudo>
-        </>
-    )
+  return (
+    <>
+      <Header btn={false} />
+      <Conteudo>
+        <h2>Login</h2>
+        <Form onSubmit={autenticar}>
+          <Form.Group>
+            <Form.Label className="mt-3">Email:</Form.Label>
+            <Form.Control type="email" placeholder="Insira o seu e-mail" required />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="mt-3">Senha:</Form.Label>
+            <Form.Control type="password" placeholder="Insira a sua senha" required />
+          </Form.Group>
+          <Button className="mt-3" type="submit">Login</Button>
+          {alert ? <Alert className="mt-3" variant="danger">Usuário e senha incorretos</Alert> : ""}
+        </Form>
+      </Conteudo>
+    </>
+  )
 }
 
 export default Login

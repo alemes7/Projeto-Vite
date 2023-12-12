@@ -1,4 +1,4 @@
-function Conteudo({children}) {
+function Conteudo({children}){
     return (
         <div className={styleContainer}>
             {children}
@@ -6,6 +6,6 @@ function Conteudo({children}) {
     )
 }
 
-const styleContainer = "container mt-5 bg-white p-5 rounded shadow";
+const styleContainer = "container mt-5 bg-white p-5 rounded shadow"
 
 export default Conteudo
